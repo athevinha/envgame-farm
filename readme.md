@@ -3,7 +3,7 @@
 Install the dependencies...
 
 ```bash
-cd envgame-FES
+cd envgame_FES
 npm install
 npm run dev
 ```
