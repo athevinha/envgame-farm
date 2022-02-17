@@ -4,22 +4,22 @@
 <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimum-scale=1, width=device-width, height=device-height">
+    <meta name="viewport"
+        content="initial-scale=1, maximum-scale=1, user-scalable=no, minimum-scale=1, width=device-width, height=device-height">
 </head>
 
 <body>
     <div id="rpg"></div>
-    
     <style>
         body,
         html {
             height: 100%;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         body {
             margin: 0;
-            background-color: black; 
+            background-color: black;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -27,7 +27,7 @@
 
         #rpg {
             position: relative;
-            
+
         }
 
         @media (min-width: 800px) {
