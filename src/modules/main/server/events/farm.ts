@@ -27,7 +27,7 @@ export function FarmEvent(options): object {
             player.emit('event', { farm: player.getVariable('farm') })
         }
         private resfresh(player) {
-            if (player.getVariable(name)) {
+            if (player!.getVariable(name)) {
                 let farm = player.getVariable('farm')
                 farm++
                 player.setVariable('farm', farm)
