@@ -1,15 +1,24 @@
-import { Spritesheet, Animation, Direction, RpgSprite,RpgSpriteHooks } from '@rpgjs/client'
+import { Spritesheet, Animation, Direction, ISpriteCharacter } from '@rpgjs/client'
+import { RpgSprite, RpgSpriteHooks } from '@rpgjs/client'
 
 const frameX = (direction) => {
-    
-    return {
-        [Direction.Down]: 0,
-        [Direction.Left]: 1,
-        [Direction.Right]: 2, 
-        [Direction.Up]: 3,
-        ["center"]: 4,
-        // [Direction.Center]: 4,
-    }[direction]
+    direction;
+    // const username = localStorage.farm as string | undefined;
+    var x: number = +localStorage.farm;
+    console.log('return value', x)
+    return x
+}
+const frameY = (direction) => {
+    direction;
+    // const username = localStorage.farm as string | undefined;
+    var y: number = +localStorage.farm;
+    y = 0;
+    if (y === 0) { // disease
+        return 3
+    }
+    else if (y === 1) {
+        return 0
+    }
 }
 
 @Spritesheet({
@@ -20,14 +29,25 @@ const frameX = (direction) => {
     framesHeight: 4,
     framesWidth: 6,
     textures: {
+        // default: {
+        //     animations: (hi) =>
+        //         [
+        //             [{ time: 100, frameX: frameX(hi), frameY: 0 }]
+        //         ]
+        // },
         [Animation.Stand]: {
-            animations: direction => 
-            [
+            animations: (direction) =>
                 [
-                     {time: 0, frameX: frameX(direction) , frameY: 1},
+                    [
+                        { time: 0, frameX: frameX(direction), frameY: frameY(direction) },
+                    ]
                 ]
-            ]
         }
     }
 })
-export class Farm  { }
+export class Farm { }
+// export class Farm implements ISpriteCharacter {
+//     onCharacterStand(sprite: RpgSprite) {
+//         sprite.animation.play(Animation.Stand, ['hello'])
+//     }
+// }

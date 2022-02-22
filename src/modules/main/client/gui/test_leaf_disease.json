@@ -1,0 +1,71 @@
+{
+    "0_farm": [{
+        "status": "good",
+        "task": "Meet the village chief to get a item !",
+
+        "data": [
+            "https: //encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7nYRVStg4rnUjpHsm5mZ6Q34Q4UOqFBC6Fw&usqp=CAU",
+            "https://cdn.pixabay.com/photo/2015/11/11/15/41/new-1038840_960_720.jpg",
+            "https://ak.picdn.net/shutterstock/videos/1006564060/thumb/4.jpg"
+        ]
+    }],
+    "1_farm": [{
+        "status": "good",
+        "task": "Meet the village chief to get a item !",
+        "data": [
+            "https://t4.ftcdn.net/jpg/02/16/59/19/360_F_216591900_ekerlUck717W1VHl2gbnuiSUDyuoUtTz.jpg",
+            "https://www.azernews.az/media/2019/08/05/association_of_sapling_producers_established.jpg",
+            "https://media.istockphoto.com/photos/plant-sprouting-from-the-dirt-with-a-blurred-background-picture-id469538141?k=20&m=469538141&s=612x612&w=0&h=1boSdBCH-vqdHlAvPVfr4EVzNLdDC5cxClVqYbdPxgA="
+        ]
+    }],
+    "2_farm": [{
+        "status": "good",
+        "task": "Meet the village chief to get a item !",
+        "data": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHSSrA6lugtAECyo0kkVDqw-u5szQ_X3NohA&usqp=CAU",
+            "https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2017/11/22/640420-plants.jpg"
+        ]
+    }],
+    "3_farm": [{
+            "status": "good",
+            "task": "Meet the village chief to get a item !",
+            "data": [
+                "https://media.istockphoto.com/photos/leaf-picture-id500613911?k=20&m=500613911&s=170667a&w=0&h=kQsX3BED5E2Kh7iFkeqx7LU2swTweN0JI5U17UaLCiE=",
+                "https://media.istockphoto.com/photos/lone-fig-leaf-on-white-background-picture-id105079470?k=20&m=105079470&s=612x612&w=0&h=aKu4jok45YzaCpIPSkAiUvgn4kS08GNhC-jbuA6pUzY="
+            ]
+        },
+        {
+            "status": "disease",
+            "task": "Meet the village chief to get a item !",
+            "data": [
+                "https://extension.umn.edu/sites/extension.umn.edu/files/marssonia-leaf-spot-on-euonymus-grabowski.jpg",
+                "https://content.ces.ncsu.edu/media/images/anthracnose_and_septoria_leaf_spots.jpeg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHSSrA6lugtAECyo0kkVDqw-u5szQ_X3NohA&usqp=CAU",
+                "https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2017/11/22/640420-plants.jpg",
+                "https://res.cloudinary.com/envgame/image/upload/v1638085177/test_image1_oowimi.png",
+                "https://res.cloudinary.com/envgame/image/upload/v1634548952/test_datal_s7xsv7.jpg",
+                "https://res.cloudinary.com/envgame/image/upload/v1634548625/test_data4_vfw7ja.jpg"
+            ]
+        }
+    ],
+    "4_farm": [{
+            "status": "good",
+            "task": "Meet the village chief to get a item !",
+            "data": [
+                "https://media.istockphoto.com/photos/leaf-picture-id500613911?k=20&m=500613911&s=170667a&w=0&h=kQsX3BED5E2Kh7iFkeqx7LU2swTweN0JI5U17UaLCiE=",
+                "https://media.istockphoto.com/photos/lone-fig-leaf-on-white-background-picture-id105079470?k=20&m=105079470&s=612x612&w=0&h=aKu4jok45YzaCpIPSkAiUvgn4kS08GNhC-jbuA6pUzY="
+            ]
+        },
+        {
+            "status": "disease",
+            "task": "Meet the village chief to get a item !",
+            "data": [
+                "https://res.cloudinary.com/envgame/image/upload/v1631032060/C%C3%A0_chua_-_b%E1%BB%87nh_th%C3%A1n_th%C6%B0_zxht2d.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/7/76/%27Cercospora_capsici.jpg",
+                "https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/885/cached.offlinehbpl.hbpl.co.uk/news/WOH/Rose-Black-Spot-Dove-Associates-20171101013322820_1.jpg",
+                "https://www.lovethegarden.com/sites/default/files/styles/large/public/content/articles/UK_learn-grow-garden-advice-pests-disease-control-common-types-plant-fungus_main.jpg?itok=4moMjiZn",
+                "https://us.123rf.com/450wm/sukr13/sukr131608/sukr13160800604/61371520-leaf-disease-outbreak-contact-the-tree-leaves-.jpg?ver=6"
+            ]
+        }
+    ]
+}

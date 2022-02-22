@@ -1,8 +1,8 @@
 import { RpgMap, MapData } from '@rpgjs/server'
 import { NpcEvent } from '../events/npc'
 import { ShopEvent } from '../events/shop'
-import { Villager1Event } from '../events/villager1';
-import { Villager2Event } from '../events/villager2';
+import { Villager1Event } from '../events/ev1';
+import { Villager4Event } from '../events/ev4';
 import { ChestEvent } from '../events/chest';
 import { FarmEvent } from '../events/farm';
 import { Potion } from '../database/items/potion';
@@ -13,18 +13,20 @@ import { Potion } from '../database/items/potion';
     name: 'Town',
     events: [
         Villager1Event,
-        Villager2Event,
+        Villager4Event,
         NpcEvent({
             name: 'EV-2',
             text: 'I find this city very quiet!',
             graphic: 'female13',
-            moveRandom: true
+            type: "ai"
+            // moveRandom: true
         }),
         NpcEvent({
             name: 'EV-3',
             text: 'It is beautiful today!',
             graphic: 'female19',
-            moveRandom: true
+            type: "rem"
+            // moveRandom: true
         }),
         ShopEvent,
         ChestEvent({

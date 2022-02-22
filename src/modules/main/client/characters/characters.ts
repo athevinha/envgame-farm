@@ -1,5 +1,11 @@
 import { Spritesheet, Presets } from '@rpgjs/client'
+import { RpgSprite, RpgSpriteHooks } from '@rpgjs/client'
 
+const sprite: RpgSpriteHooks = {
+    onInit(sprite: RpgSprite) {
+        console.log(sprite)
+    },
+}
 const { RMSpritesheet } = Presets
 
 @Spritesheet({

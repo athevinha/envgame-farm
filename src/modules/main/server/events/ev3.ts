@@ -2,15 +2,15 @@ import { RpgEvent, EventData, RpgPlayer, Move } from '@rpgjs/server'
 import { Key } from '../database/items/key';
 
 @EventData({
-    name: 'EV-1', 
+    name: 'EV-3', 
     hitbox: {
         width: 32,
         height: 16
     }
 })
-export class Villager1Event extends RpgEvent {
+export class Villager3Event extends RpgEvent {
     onInit() {
-        this.setGraphic('male12')
+        this.setGraphic('male4_1')
     }
     async onAction(player: RpgPlayer) {
         if (player.hasItem(Key)) {

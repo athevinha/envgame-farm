@@ -3,7 +3,6 @@ export function FarmEvent(options): object {
 
     const { name, text, gain } = options
     console.log("?")
-    let farm = 0
     @EventData({
         name,
         mode: EventMode.Scenario,
@@ -13,38 +12,35 @@ export function FarmEvent(options): object {
         }
     })
     class FarmEventClass extends RpgEvent {
-        onInit(player: RpgPlayer) 
-        {
+        onInit(player: RpgPlayer) {
+            player.setVariable('farm', 0)
             this.resfresh(player)
             this.setGraphic('farm')
         }
         async onAction(player: RpgPlayer) {
-            // if (player.getVariable(name)) {
-            //     return
-            // }
-            // if (player.getDirection() != Direction.Up) {
-            //     return
-            // }
-            // await player.showText(text) 
+            const gui = await player.gui('farm')
+            // player.showAnimation('farm', 'default')
             player.addItem(gain.item)
-            player.setVariable(name, true)
             this.resfresh(player)
+            player.setVariable(name, true)
+            gui.open()
+            player.emit('event', { farm: player.getVariable('farm') })
         }
         private resfresh(player) {
-            console.log(this)
-            let FD = {
-                Center: "Center",
-                ...Direction
-            } 
-            this. = FD
-            // player.speed = 10
             if (player.getVariable(name)) {
-                // farm++ 
-                this.direction++
+                let farm = player.getVariable('farm')
+                farm++
+                player.setVariable('farm', farm)
+                console.log(farm)
+                this.direction++;
+                if (this.direction >= 3) {
+                    this.direction = 0
+                }
             }
-            else{
+            else {
                 this.direction = 0
-                // this.changeDirection(Direction.Down) 
+                player.emit('event', { farm: 0 })
+                player.setVariable('farm', 0)
             }
         }
     }

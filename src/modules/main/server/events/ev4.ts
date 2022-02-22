@@ -7,7 +7,7 @@ import { RpgEvent, EventData, RpgPlayer, Move } from '@rpgjs/server'
         height: 16
     }
 })
-export class Villager2Event extends RpgEvent {
+export class Villager4Event extends RpgEvent {
     onInit() {
         this.speed = 2
         this.frequency = 300
