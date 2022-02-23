@@ -47,7 +47,7 @@ export default {
       testdata: testdata,
       receiveMessage(e) {
         console.log(e.data.prediction);
-        // console.log(testdata["one"]);
+        console.log(testdata["one"]);
         // close();
       },
       close() {

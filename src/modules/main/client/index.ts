@@ -32,10 +32,10 @@ import { sprite } from './hooks/sprite'
     },
     engine: {
         onConnected(engine: RpgClientEngine, socket: any) {
-            console.log("ádadasdas")
+            console.log("?????")
             socket.on('event', (arg) => {
                 console.log(arg.farm)
-                alert('hi')
+                // alert('hiádasd')
                 localStorage.setItem("farm", arg.farm)
             })
         }
