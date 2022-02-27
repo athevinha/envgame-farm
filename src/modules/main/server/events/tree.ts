@@ -1,37 +1,31 @@
 import { RpgEvent, EventData, RpgPlayer, EventMode, Direction } from '@rpgjs/server'
-export function FarmEvent(options): object {
+export function TreeEvent(options): object {
 
     const { name, text, gain } = options
-    const var_name = 'stt_' + name;
     @EventData({
         name,
         mode: EventMode.Scenario,
         hitbox: {
             width: 32,
             height: 32
-        },
+        }
     })
-    class FarmEventClass extends RpgEvent {
+    class TreeEventClass extends RpgEvent {
         onInit(player: RpgPlayer) {
-            player.setVariable(var_name, 0)
-            this.direction++;
+            player.setVariable('farm', 0)
             this.resfresh(player)
-            this.setGraphic('farm')
+            this.setGraphic('tree')
         }
         async onAction(player: RpgPlayer) {
-            const gui = await player.gui('farm')
+            const gui = await player.gui('tree')
             // player.showAnimation('farm', 'default')
-            player.addItem(gain.item)
-            this.resfresh(player)
-            player.setVariable(name, true)
-            // gui.open()
-            player.emit('event', { farm: player.getVariable(var_name), local: var_name })
+            gui.open()
         }
         private resfresh(player) {
             if (player!.getVariable(name)) {
-                let farm = player.getVariable(var_name)
+                let farm = player.getVariable('farm')
                 farm++
-                player.setVariable(var_name, farm)
+                player.setVariable('farm', farm)
                 this.direction++;
                 if (this.direction >= 3) {
                     this.direction = 0
@@ -44,5 +38,5 @@ export function FarmEvent(options): object {
             }
         }
     }
-    return FarmEventClass
+    return TreeEventClass
 }

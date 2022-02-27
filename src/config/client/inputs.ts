@@ -1,5 +1,5 @@
 import { Input, Control } from '@rpgjs/client'
-
+import { RpgGui } from '@rpgjs/client'
 export const inputs = {
     [Control.Up]: {
         repeat: true,
@@ -20,7 +20,15 @@ export const inputs = {
     [Control.Action]: {
         bind: [Input.Space, Input.Enter]
     },
-    [Control.Back]: {
-        bind: Input.Escape
+    mycustom2: {
+        bind: Input.Escape,
+        method({ actionName }) {
+            RpgGui.hide('ai')
+            RpgGui.hide('rem')
+            RpgGui.hide('farm')
+            RpgGui.hide('structure')
+            RpgGui.hide('tree')
+        }
     }
+
 }

@@ -28,7 +28,7 @@
       top: 16vh;
     "
     id="GUI_frame"
-    src="https://envgame-fes.netlify.app/ai"
+    src="https://envgame-fes.netlify.app/ai/"
     height="500px"
     width="800px"
     name="frame-id"
@@ -46,12 +46,12 @@ export default {
       maxHp: 0,
       testdata: testdata,
       receiveMessage(e) {
-        console.log(e.data.prediction);
-        console.log(testdata["one"]);
-        // close();
+        console.log(
+          "PARENT_LOG: parent receive to chill, data receive :",
+          e.data.prediction
+        );
       },
       close() {
-        console.log("ád");
         this.rpgGuiClose("farm", {
           amount: 1000,
         });
@@ -59,15 +59,11 @@ export default {
     };
   },
   mounted() {
-    console.log(testdata[localStorage.farm + "_farm"]);
-    var frame = window.frames["GUI_frame"];
-    frame.contentWindow.postMessage(
-      { call: "sendValue", farm: testdata[localStorage.farm + "_farm"] },
-      "*"
-    );
-    // console.log(this.ramdom_testdata("one"));
-    // frame.contentWindow.postMessage("hi", "*");
-    // frame.yourMethod("hello");
+    var frame = window.frames["GUI_frame"],
+      data = { call: "sendValue", farm: testdata[localStorage.farm + "_farm"] };
+    console.log("PARENT_LOG: parent send to chill, data send:", data);
+    frame.contentWindow.postMessage(data, "*");
+
     window.addEventListener("message", this.receiveMessage, false);
     this.obsCurrentPlayer = this.rpgCurrentPlayer.subscribe(({ object }) => {
       this.hp = object.hp;
@@ -82,18 +78,5 @@ export default {
       return (this.hp / this.maxHp) * 100 + "%";
     },
   },
-  unmounted() {
-    this.obsCurrentPlayer.unsubscribe();
-  },
 };
 </script>
-
-<style>
-template {
-  margin: 0;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>

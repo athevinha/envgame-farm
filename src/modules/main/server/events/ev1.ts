@@ -2,7 +2,7 @@ import { RpgEvent, EventData, RpgPlayer, Move } from '@rpgjs/server'
 import { Key } from '../database/items/key';
 
 @EventData({
-    name: 'EV-1', 
+    name: 'EV-1',
     hitbox: {
         width: 32,
         height: 16
@@ -13,7 +13,6 @@ export class Villager1Event extends RpgEvent {
         this.setGraphic('male12')
     }
     async onAction(player: RpgPlayer) {
-        console.log(player)
         if (player.hasItem(Key)) {
             await player.showText('Great, you have the key to the dungeon! You deserve my congratulations', {
                 talkWith: this

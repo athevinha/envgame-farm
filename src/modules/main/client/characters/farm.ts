@@ -4,15 +4,16 @@ import { RpgSprite, RpgSpriteHooks } from '@rpgjs/client'
 const frameX = (direction) => {
     direction;
     // const username = localStorage.farm as string | undefined;
-    var x: number = +localStorage.farm;
-    console.log('return value', x)
+
+    var x: number = +localStorage.getItem(localStorage.getItem('farm')!)!;
+    console.log('farm.ts - frameX', x)
     return x
 }
 const frameY = (direction) => {
     direction;
     // const username = localStorage.farm as string | undefined;
     var y: number = +localStorage.farm;
-    y = 0;
+    y = 1;
     if (y === 0) { // disease
         return 3
     }

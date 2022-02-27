@@ -6,7 +6,9 @@ import { Musics, Sounds } from './sounds'
 import { Animations } from './animations'
 import ai from './gui/ai.vue'
 import rem from './gui/rem.vue'
+import tree from './gui/tree.vue'
 import farm from './gui/farm.vue'
+import structure from './gui/structure.vue'
 import { RpgSceneMapHooks, RpgSceneMap } from "@rpgjs/client";
 import { sceneMap } from './hooks/scene'
 import { sprite } from './hooks/sprite'
@@ -22,21 +24,20 @@ import { sprite } from './hooks/sprite'
         Sounds
     ],
     gui: [
+        structure,
         ai,
         rem,
-        farm
+        farm,
+        tree,
     ],
     scenes: {
         map: sceneMap
-
     },
     engine: {
         onConnected(engine: RpgClientEngine, socket: any) {
-            console.log("?????")
             socket.on('event', (arg) => {
-                console.log(arg.farm)
-                // alert('hiádasd')
-                localStorage.setItem("farm", arg.farm)
+                localStorage.setItem(arg.local, arg.farm)
+                localStorage.setItem('farm', arg.local)
             })
         }
     },

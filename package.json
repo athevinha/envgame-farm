@@ -1,5 +1,5 @@
 {
-    "name": "@rpgjs/sample3",
+    "name": "envgame_fes",
     "version": "3.0.0-beta.2",
     "description": "",
     "main": "src/server.ts",

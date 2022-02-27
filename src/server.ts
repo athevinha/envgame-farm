@@ -5,9 +5,9 @@ import bodyParser from 'body-parser'
 import { Server } from 'socket.io'
 import { entryPoint } from '@rpgjs/server'
 import globalConfig from './config/server'
-import modules from './modules' 
+import modules from './modules'
 
-const PORT = process.env.PORT || 3000
+const PORT = 3000
 
 const app = express()
 const server = http.createServer(app)
@@ -22,7 +22,7 @@ rpgGame.app = app // Useful for plugins (monitoring, backend, etc.)
 
 app.use('/', express.static(__dirname + '/../client'))
 
-server.listen(PORT, () =>  {
+server.listen(PORT, () => {
     rpgGame.start()
     console.log(`
         ===> MMORPG is running on http://localhost:${PORT} <===
