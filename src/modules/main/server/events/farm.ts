@@ -24,7 +24,7 @@ export function FarmEvent(options): object {
             player.addItem(gain.item)
             this.resfresh(player)
             player.setVariable(name, true)
-            // gui.open()
+            gui.open()
             player.emit('event', { farm: player.getVariable(var_name), local: var_name })
         }
         private resfresh(player) {
