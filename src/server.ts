@@ -22,7 +22,7 @@ rpgGame.app = app // Useful for plugins (monitoring, backend, etc.)
 
 app.use('/', express.static(__dirname + '/../client'))
 
-server.listen(PORT, () => {
+server.listen(process.env.PORT || PORT, () => {
     rpgGame.start()
     console.log(`
         ===> MMORPG is running on http://localhost:${PORT} <===
