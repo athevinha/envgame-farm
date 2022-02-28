@@ -71,7 +71,7 @@ export default {
     return {
       hp: 0,
       selected: "",
-      base_api: "http://localhost:5000",
+      base_api: "http://create-model.envgame.online/",
       image: "",
       name: "",
       toast: "Loading...",
