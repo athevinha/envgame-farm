@@ -7,7 +7,7 @@ import { entryPoint } from '@rpgjs/server'
 import globalConfig from './config/server'
 import modules from './modules'
 
-const PORT = 3001
+const PORT = 3000
 
 const app = express()
 const server = http.createServer(app)
