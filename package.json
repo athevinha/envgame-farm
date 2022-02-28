@@ -16,9 +16,7 @@
     "keywords": [],
     "author": "",
     "license": "MIT",
-    "engines": {
-        "node": "<15"
-    },
+
     "dependencies": {
         "@rpgjs/client": "^3.0.0-beta.4",
         "@rpgjs/default-gui": "^3.0.0-beta.4",
