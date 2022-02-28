@@ -39,7 +39,6 @@ events = [
     //     gain: {
     //         item: Potion
     //     }
-    // }),
 ];
 // render muti farm 
 let farms: string[]
