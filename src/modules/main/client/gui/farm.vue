@@ -28,29 +28,38 @@
       top: 16vh;
     "
     id="GUI_frame"
-    src="https://envgame-fes.netlify.app/ai/"
+    src="https://envgame-cropper.netlify.app/"
     height="500px"
     width="800px"
     name="frame-id"
   ></iframe>
+  <div id="toast" style="background: white; color: black">
+    <div id="desc" style="background: white; color: black">{{ toast }}</div>
+  </div>
 </template>
 
 <script>
-import testdata from "./test_leaf_disease.json";
 export default {
   name: "farm",
-  inject: ["rpgCurrentPlayer", "rpgGuiClose"],
+  inject: [
+    "rpgCurrentPlayer",
+    "rpgKeypress",
+    "rpgGuiClose",
+    "rpgSocket",
+    "rpgEngine",
+    "rpgGui",
+  ],
   data() {
     return {
       hp: 0,
       maxHp: 0,
-      testdata: testdata,
-      receiveMessage(e) {
-        console.log(
-          "PARENT_LOG: parent receive to chill, data receive :",
-          e.data.prediction
-        );
-      },
+      accuracy_condition: 0.85,
+      prediction_count_condition: 1,
+      toast: "",
+      prediction_count: 0,
+      stage_over: false,
+      farm_val_state: "",
+      receiveMessage(e) {},
       close() {
         this.rpgGuiClose("farm", {
           amount: 1000,
@@ -58,21 +67,51 @@ export default {
       },
     };
   },
-  mounted() {
-    var frame = window.frames["GUI_frame"],
-      data = { call: "sendValue", farm: testdata[localStorage.farm + "_farm"] };
-    console.log("PARENT_LOG: parent send to chill, data send:", data);
-    frame.contentWindow.postMessage(data, "*");
-
-    window.addEventListener("message", this.receiveMessage, false);
-    this.obsCurrentPlayer = this.rpgCurrentPlayer.subscribe(({ object }) => {
-      this.hp = object.hp;
-      this.maxHp = object.param.maxHp;
-    });
+  methods: {
+    show_toast: function (text, time) {
+      var x = document.getElementById("toast");
+      x.className = "show";
+      this.toast = text;
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, time);
+    },
   },
-  //   beforeDestroy() {
-  //     window.removeEventListener("message", this.receiveMessage);
-  //   },
+  props: ["farm_val"],
+  mounted() {
+    let farm_val_state = this.farm_val;
+    window.addEventListener(
+      "message",
+      (e) => {
+        console.log(e.data);
+        if (e.data.isLeaf && e.data.accuracy >= this.accuracy_condition) {
+          this.prediction_count++;
+          this.show_toast(
+            `Good cropper image, let find another leaf disease!`,
+            3000
+          );
+        } else {
+          this.show_toast(
+            `Your copper image is not leaf or the probability under ${Math.round(
+              this.accuracy_condition * 100
+            )}%!`,
+            3000
+          );
+        }
+        if (this.prediction_count >= this.prediction_count_condition)
+          this.rpgSocket().emit("gui.stage4", "gui -> index.ts");
+      },
+      false
+    );
+
+    // var frame = window.frames["GUI_frame"],
+    //   data = { call: "sendValue" };
+    // frame.contentWindow.postMessage(data, "*");
+    // console.log("PARENT_LOG: parent send to chill, data send:", data);
+  },
+  beforeDestroy() {
+    window.removeEventListener("message", this.receiveMessage);
+  },
   computed: {
     width() {
       return (this.hp / this.maxHp) * 100 + "%";

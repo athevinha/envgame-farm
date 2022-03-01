@@ -35,9 +35,10 @@ import { sprite } from './hooks/sprite'
     },
     engine: {
         onConnected(engine: RpgClientEngine, socket: any) {
-            socket.on('event', (arg) => {
+            socket.on('set_local_store', (arg) => {
                 localStorage.setItem(arg.local, arg.farm)
                 localStorage.setItem('farm', arg.local)
+                console.log('local_client:', localStorage.getItem(arg.local))
             })
         }
     },

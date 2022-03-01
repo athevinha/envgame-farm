@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="60" height="60" tilewidth="32" tileheight="32" infinite="0" nextlayerid="19" nextobjectid="51">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="60" height="60" tilewidth="32" tileheight="32" infinite="0" nextlayerid="19" nextobjectid="54">
  <tileset firstgid="1" source="[A]WaterFall_pipo.tsx"/>
  <tileset firstgid="577" source="[Base]BaseChip_pipo.tsx"/>
  <tileset firstgid="1577" source="[A]Grass_pipo.tsx"/>
@@ -649,22 +649,22 @@
 </data>
  </layer>
  <objectgroup id="14" name="Object Layer 1" offsetx="8" offsety="0">
-  <object id="1" name="Start Position" type="start" x="141.744" y="289.552">
+  <object id="1" name="Start Position" type="start" x="321.411" y="437.972">
    <point/>
   </object>
-  <object id="4" name="EV-1" type="event" x="423" y="335.333">
+  <object id="4" name="Village Chief" type="event" x="423" y="335.333">
    <point/>
   </object>
   <object id="5" name="shop" x="966.667" y="840.167">
    <point/>
   </object>
-  <object id="7" name="EV-2" x="112.729" y="874.339">
+  <object id="7" name="AI Prediction" x="87.0622" y="870.991">
    <point/>
   </object>
-  <object id="8" name="EV-4" x="358.827" y="1399.34">
+  <object id="8" name="Data Structure" x="358.827" y="1399.34">
    <point/>
   </object>
-  <object id="9" name="EV-3" x="374.513" y="862.167">
+  <object id="9" name="REM" x="370.049" y="864.399">
    <point/>
   </object>
   <object id="10" name="chest-1" x="590" y="211">
@@ -713,6 +713,12 @@
    <point/>
   </object>
   <object id="50" name="tree-3" x="154.966" y="1243.57">
+   <point/>
+  </object>
+  <object id="51" name="Water" type="event" x="546.523" y="550.148">
+   <point/>
+  </object>
+  <object id="52" name="Fertillizer" type="event" x="48.8741" y="295.308">
    <point/>
   </object>
  </objectgroup>

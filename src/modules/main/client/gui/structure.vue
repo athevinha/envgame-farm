@@ -108,7 +108,6 @@
 
 <script>
 import axios from "axios";
-import testdata from "./test_leaf_disease.json";
 export default {
   name: "structure",
   inject: ["rpgCurrentPlayer", "rpgGuiClose"],
@@ -126,7 +125,6 @@ export default {
       allClasses: ["loading..."],
       maxHp: 0,
       more: 5,
-      testdata: testdata,
       datasetStructers: [],
       random_int(a, b) {
         return Math.floor(Math.random() * b) + a;

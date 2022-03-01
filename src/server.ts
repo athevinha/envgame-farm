@@ -12,7 +12,11 @@ const PORT = 3000
 const app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
-    maxHttpBufferSize: 1e4
+    maxHttpBufferSize: 1e4,
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
 })
 
 app.use(bodyParser.json())
@@ -21,6 +25,7 @@ const rpgGame = entryPoint(modules, { io, basePath: __dirname, globalConfig })
 rpgGame.app = app // Useful for plugins (monitoring, backend, etc.)
 
 app.use('/', express.static(__dirname + '/../client'))
+
 
 server.listen(process.env.PORT || PORT, () => {
     rpgGame.start()

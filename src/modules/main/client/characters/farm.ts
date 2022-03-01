@@ -4,9 +4,11 @@ import { RpgSprite, RpgSpriteHooks } from '@rpgjs/client'
 const frameX = (direction) => {
     direction;
     // const username = localStorage.farm as string | undefined;
-
-    var x: number = +localStorage.getItem(localStorage.getItem('farm')!)!;
-    console.log('farm.ts - frameX', x)
+    let farm_name = localStorage.getItem('farm')
+    // if (localStorage.getItem('isStage5')) {
+    //     localStorage.setItem(farm_name!, "5")
+    // }
+    var x: number = +localStorage.getItem(farm_name!)!;
     return x
 }
 const frameY = (direction) => {

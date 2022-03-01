@@ -1,8 +1,10 @@
 import { RpgEvent, EventData, RpgPlayer, Move } from '@rpgjs/server'
-import { Key } from '../database/items/key';
+import { Fertillizer } from '../database/items/fertillizer';
+import { Water } from '../database/items/water';
+import { Mineral } from '../database/items/mineral';
 
 @EventData({
-    name: 'EV-1',
+    name: 'Village Chief',
     hitbox: {
         width: 32,
         height: 16
@@ -13,22 +15,22 @@ export class Villager1Event extends RpgEvent {
         this.setGraphic('male12')
     }
     async onAction(player: RpgPlayer) {
-        if (player.hasItem(Key)) {
-            await player.showText('Great, you have the key to the dungeon! You deserve my congratulations', {
-                talkWith: this
-            })
-            return
+        // if (player.getVariable("ISPLAY")) {
+        //     await player.showText("Well come to FES, Farm Education Simulator -- @Envgame")
+        // }
+        // else {
+        if (player.hasItem(Fertillizer) && player.hasItem(Water) && !player.hasItem(Mineral)) {
+            player.addItem(Mineral)
+            await player.showText("Your got mineral, let provide minerals for plants!")
         }
-        let texts = [
-            'Welcome to the RPGJS demo!',
-            'To test, I propose to bring me the key of the dungeon.',
-            'You have to buy it from the seller in this village.'
-        ]
-        for (let msg of texts) {
-            await player.showText(msg, {
-                talkWith: this
-            })
+        else if (!player.hasItem(Fertillizer) && !player.hasItem(Water)) {
+            await player.showText("You lack fertilizer and water. Once you have it, come see me for minerals!")
         }
-        player.setVariable('ASK_BROTHER', true)
+        else if (player.hasItem(Water)) {
+            await player.showText("You already have minerals, let provide minerals for plants!")
+        }
+
+        // }
+
     }
 }

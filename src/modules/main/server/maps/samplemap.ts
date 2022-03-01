@@ -6,20 +6,21 @@ import { Villager4Event } from '../events/ev4';
 import { ChestEvent } from '../events/chest';
 import { FarmEvent } from '../events/farm';
 import { Potion } from '../database/items/potion';
+import { } from '../database/items/water';
 import { TreeEvent } from '../events/tree';
 let events: object[]
 events = [
     Villager1Event,
     Villager4Event,
     NpcEvent({
-        name: 'EV-2',
+        name: 'AI Prediction',
         text: 'I find this city very quiet!',
         graphic: 'female13',
         type: "ai"
         // moveRandom: true
     }),
     NpcEvent({
-        name: 'EV-3',
+        name: 'REM',
         text: 'It is beautiful today!',
         graphic: 'female19',
         type: "rem"
@@ -39,6 +40,17 @@ events = [
     //     gain: {
     //         item: Potion
     //     }
+    NpcEvent({
+        name: 'Water',
+        text: 'You got a water!',
+        graphic: 'male4_1',
+
+    }),
+    NpcEvent({
+        name: "Fertillizer",
+        text: 'You got a fertillizer!',
+        graphic: 'male17',
+    }),
 ];
 // render muti farm 
 let farms: string[]
@@ -64,7 +76,7 @@ events = events.concat(trees.map((tree: string) => {
         }
     })
 }));
-console.log(events)
+// console.log(events)
 @MapData({
     id: 'medieval',
     file: require('./tmx/samplemap.tmx'),

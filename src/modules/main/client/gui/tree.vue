@@ -63,7 +63,6 @@
 
 <script>
 import axios from "axios";
-import testdata from "./test_leaf_disease.json";
 export default {
   name: "tree",
   inject: ["rpgCurrentPlayer", "rpgGuiClose"],
@@ -78,7 +77,6 @@ export default {
       classes: "",
       allClasses: ["loading..."],
       maxHp: 0,
-      testdata: testdata,
       receiveMessage(e) {},
       random_int(a, b) {
         return Math.floor(Math.random() * b) + a;

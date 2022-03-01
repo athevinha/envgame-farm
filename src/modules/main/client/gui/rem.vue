@@ -28,24 +28,83 @@
       top: 16vh;
     "
     id="GUI_frame"
-    src="https://create-model.envgame.online/"
+    src="http://create-model.envgame.online/"
     height="500px"
     width="800px"
     name="frame-id"
   ></iframe>
+  <div id="toast">
+    <div id="desc">{{ toast }}</div>
+  </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "rem",
-  inject: ["rpgCurrentPlayer"],
+  inject: ["rpgCurrentPlayer", "rpgSocket"],
   data() {
     return {
+      train_result: false,
+      base_api: "http://create-model.envgame.online",
+      toast: "Loading...",
       hp: 0,
+      name_model: "test_3_envgame_leaf_disease",
       maxHp: 0,
     };
   },
+  methods: {
+    show_toast: function (text, time) {
+      var x = document.getElementById("toast");
+      x.className = "show";
+      this.toast = text;
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, time);
+    },
+    get_training_result: function () {
+      axios
+        .get(`${this.base_api}/getHistoryFES/${this.name_model}`)
+        .then((response) => {
+          let data = response.data;
+          if (data.status == 200) {
+            let val_accuracys = data.history.log.val_accuracy,
+              val_accuracy = val_accuracys[val_accuracys.length - 1];
+            if (val_accuracy >= 0.94) {
+              this.train_result = true;
+              this.show_toast(
+                "Congratulation, your model has accuracy of over 94% in the test data!",
+                3000
+              );
+              const socket = this.rpgSocket();
+              socket.emit("gui.stage5", true);
+            } else {
+              this.show_toast(
+                "Fail, your model has accuracy of under 94% in the test data!",
+                3000
+              );
+            }
+          }
+        })
+        .catch((e) => {
+          this.show_toast(
+            "Collect data sets in the forest and manage data with 'data structure'!",
+            3000
+          );
+          console.log(e);
+        });
+    },
+  },
   mounted() {
+    window.addEventListener(
+      "message",
+      (e) => {
+        this.name_model = e.data;
+      },
+      false
+    );
+
+    this.get_training_result();
     this.obsCurrentPlayer = this.rpgCurrentPlayer.subscribe(({ object }) => {
       this.hp = object.hp;
       this.maxHp = object.param.maxHp;

@@ -20,6 +20,7 @@ export const inputs = {
     [Control.Action]: {
         bind: [Input.Space, Input.Enter]
     },
+
     mycustom2: {
         bind: Input.Escape,
         method({ actionName }) {
