@@ -8,7 +8,7 @@ export function FarmEvent(options): object {
 
     const { name, text, gain } = options
     const var_name = 'stt_' + name;
-    const first_stage = 4;
+    const first_stage = 0;
     @EventData({
         name,
         mode: EventMode.Scenario,
