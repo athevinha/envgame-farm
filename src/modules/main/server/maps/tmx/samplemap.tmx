@@ -649,7 +649,7 @@
 </data>
  </layer>
  <objectgroup id="14" name="Object Layer 1" offsetx="8" offsety="0">
-  <object id="1" name="Start Position" type="start" x="321.411" y="437.972">
+  <object id="1" name="Start Position" type="start" x="362.701" y="1344.12">
    <point/>
   </object>
   <object id="4" name="Village Chief" type="event" x="423" y="335.333">

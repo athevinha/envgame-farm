@@ -18,6 +18,30 @@
       opacity: 0.5;
     "
   ></div>
+  <div
+    style="
+      position: fixed;
+      width: 800px;
+      height: 624px;
+      z-index: 51;
+      margin-left: 5px;
+      background: rgb(119, 130, 171, 0);
+      transition: 0.4s;
+    "
+    className="form_name_model"
+  >
+    <input
+      placeholder="Your trained model name..."
+      style="width: 100%; height: 50px"
+      v-model="name_model"
+    />
+    <button
+      className="btn btn-light btn-block"
+      v-on:click="get_training_result"
+    >
+      Submit
+    </button>
+  </div>
   <iframe
     style="
       position: fixed;
@@ -49,7 +73,8 @@ export default {
       base_api: "http://create-model.envgame.online",
       toast: "Loading...",
       hp: 0,
-      name_model: "test_3_envgame_leaf_disease",
+      message: "",
+      name_model: "",
       maxHp: 0,
     };
   },
@@ -84,6 +109,11 @@ export default {
                 3000
               );
             }
+          } else {
+            this.show_toast(
+              "Collect data sets in the forest and manage data with 'data structure'!",
+              3000
+            );
           }
         })
         .catch((e) => {
@@ -121,4 +151,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.form_name_model {
+  opacity: 0;
+}
+.form_name_model:hover {
+  opacity: 1;
+}
+</style>

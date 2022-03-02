@@ -53,8 +53,19 @@
             >
               {{ file }}
             </label>
-            <label v-on:click="more += 5" style="cursor: pointer">
-              ... {{ datasetStructer.files.length - more }} more
+            <label>
+              <label style="cursor: pointer" v-on:click="more += 5"
+                >... {{ datasetStructer.files.length - more }} more</label
+              ><br />
+              <input
+                type="file"
+                @change="
+                  upload_image(
+                    $event,
+                    datasetStructer.classes.replace('static/exampleData/', '')
+                  )
+                "
+              />
             </label>
           </div>
         </div>
@@ -65,7 +76,7 @@
         text-align: center;
         border-radius: 5px;
         word-wrap: break-word;
-        width: 408px;
+        width: 380px;
         font-size: 15px;
       "
     >
@@ -78,10 +89,16 @@
       >
         Download dataset
       </a>
+
       <hr />
       <img
         v-bind:src="image_choose"
-        style="z-index: 100; border-radius: 5px; top: 40vh"
+        style='{{
+        "z-index: 100;border-radius: 5px;top: 40vh;" + 
+        image_choose === ""
+          ? ""
+          : "width: 256px; height: 256px;"
+      }}'
         id="image"
       />
       <hr />
@@ -94,12 +111,6 @@
       >
     </div>
   </div>
-  <h2>Toast</h2>
-  <p>
-    Click on the button to show the Toast. It will disappear after 5 seconds.
-  </p>
-
-  <button onclick="launch_toast()">Show Toast</button>
 
   <div id="toast">
     <div id="desc">{{ toast }}</div>
@@ -115,7 +126,7 @@ export default {
     return {
       hp: 0,
       selected: "",
-      base_api: "https://create-model.envgame.online/",
+      base_api: "http://create-model.envgame.online",
       image_choose: "",
       classes_choose: "",
       name_choose: "",
@@ -142,7 +153,6 @@ export default {
         .get(`${this.base_api}/showDatasStructureFes/exampleData`)
         .then((response) => {
           this.datasetStructers = response.data.data;
-          console.log(response.data.data);
         })
         .catch((e) => {
           console.log(e);
@@ -155,6 +165,31 @@ export default {
       setTimeout(function () {
         x.className = x.className.replace("show", "");
       }, 8000);
+    },
+    upload_image: function (e, classes) {
+      let formData = new FormData();
+      formData.append("file", e.target.files[0]);
+      formData.append("classes", classes);
+      axios
+        .post(`${this.base_api}/pushImageFES`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          this.toast = response.data;
+          var x = document.getElementById("toast");
+          setTimeout(function () {
+            x.className = x.className.replace("show", "");
+          }, 4000);
+          this.dataset_structer();
+          // this.datasetStructers = response.data.data;
+          // console.log(response.data.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
   mounted() {
