@@ -18,11 +18,12 @@ let serverEngine
             // yxtdf2
             player.on('gui.stage5', (e) => {
                 player.addItem(UpStage5)
+                player.showText("Your tree is ready to grow up!")
                 console.log('upStage5')
             })
             player.on('gui.stage4', (e) => {
                 player.addItem(UpStage4)
-                player.showText("Your prediction is leaf, your tree is ready to grow up!")
+                player.showText("Your tree is ready to grow up!")
                 console.log('upStage4')
             })
             player.setHitbox(20, 16)

@@ -7,7 +7,7 @@ import { Shield } from '../armors/shield'
 const { MAXHP, MAXSP, MAXHP_CURVE, MAXSP_CURVE } = Presets
 
 @Actor({
-    name: 'Hero',
+    name: 'Farmer',
     initialLevel: 1,
     finalLevel: 99,
     expCurve: {
@@ -24,8 +24,8 @@ const { MAXHP, MAXSP, MAXHP_CURVE, MAXSP_CURVE } = Presets
         Sword,
         Shield
     ],
-    class: Fighter 
+    class: Fighter
 })
 export class Hero {
-    
+
 }

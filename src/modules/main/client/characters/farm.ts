@@ -13,15 +13,18 @@ const frameX = (direction) => {
 }
 const frameY = (direction) => {
     direction;
-    // const username = localStorage.farm as string | undefined;
+    let farm_name = localStorage.getItem('farm')
+    var x: number = +localStorage.getItem(farm_name!)!;
     var y: number = +localStorage.farm;
-    y = 1;
-    if (y === 0) { // disease
-        return 3
-    }
-    else if (y === 1) {
-        return 0
-    }
+    if (x === 3 || x === 4) return 3
+    else return 0
+    // if (y === 0) { // disease
+    //     return 3
+    // }
+    // else if (y === 1) {
+    //     return 0
+    // }
+
 }
 
 @Spritesheet({

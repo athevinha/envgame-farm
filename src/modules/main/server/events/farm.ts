@@ -59,6 +59,7 @@ export function FarmEvent(options): object {
 
                 }
                 else if (farm === 4) {
+                    // player.addItem(UpStage5)
                     if (player.hasItem(UpStage5)) {
                         farm = 5
                         await player.showText("Your tree grows to stage 5!")
