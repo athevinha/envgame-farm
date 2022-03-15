@@ -23,7 +23,7 @@ let serverEngine
             })
             player.on('gui.stage4', (e) => {
                 player.addItem(UpStage4)
-                player.showText("Your tree is ready to grow up!")
+                player.showText("Treatment options for plants: Water, fertilizer, nitrogen fertilizer!")
                 console.log('upStage4')
             })
             player.setHitbox(20, 16)

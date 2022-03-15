@@ -18,7 +18,7 @@
       opacity: 0.5;
     "
   ></div>
-  <div class="grid-container" style="overflow: auto; height: 624px; top: 2vh">
+  <div class="grid-container" style="overflow: auto; height: 624px; top: 3vh">
     <div style="text-align: left; font-size: 10px; width: 408px">
       <br />
       <label
@@ -89,7 +89,7 @@
       >
         Download dataset
       </a>
-
+      <div id="chart"></div>
       <hr />
       <img
         v-bind:src="image_choose"
@@ -119,6 +119,7 @@
 
 <script>
 import axios from "axios";
+import ApexCharts from "apexcharts";
 export default {
   name: "structure",
   inject: ["rpgCurrentPlayer", "rpgGuiClose"],
@@ -137,6 +138,17 @@ export default {
       maxHp: 0,
       more: 5,
       datasetStructers: [],
+      options: {
+        series: [],
+        chart: {
+          width: 400,
+          type: "pie",
+        },
+        labels: [],
+        legend: {
+          position: "bottom",
+        },
+      },
       random_int(a, b) {
         return Math.floor(Math.random() * b) + a;
       },
@@ -153,6 +165,7 @@ export default {
         .get(`${this.base_api}/showDatasStructureFes/exampleData`)
         .then((response) => {
           this.datasetStructers = response.data.data;
+          this.render_pie();
         })
         .catch((e) => {
           console.log(e);
@@ -191,6 +204,21 @@ export default {
           console.log(e);
         });
     },
+    render_pie: function () {
+      this.options.labels = this.datasetStructers.map((item, id) =>
+        item.classes.replace("static/exampleData/", "")
+      );
+      this.options.labels.shift();
+      this.options.series = this.datasetStructers.map(
+        (item, id) => item.files.length
+      );
+      this.options.series.shift();
+      var chart = new ApexCharts(
+        document.querySelector("#chart"),
+        this.options
+      );
+      chart.render();
+    },
   },
   mounted() {
     this.dataset_structer();
@@ -199,6 +227,7 @@ export default {
       this.maxHp = object.param.maxHp;
     });
   },
+
   //   beforeDestroy() {
   //     window.removeEventListener("message", this.receiveMessage);
   //   },

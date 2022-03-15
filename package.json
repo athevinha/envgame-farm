@@ -27,6 +27,7 @@
         "@rpgjs/server": "^3.0.0-beta.4",
         "@rpgjs/standalone": "^3.0.0-beta.4",
         "@rpgjs/testing": "^3.0.0-beta.4",
+        "apexcharts": "^3.33.2",
         "express": "4.17.1",
         "socket.io": "4.1.2",
         "socket.io-client": "4.1.2",
