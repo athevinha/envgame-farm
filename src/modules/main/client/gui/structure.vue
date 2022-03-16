@@ -89,7 +89,14 @@
       >
         Download dataset
       </a>
-      <div id="chart"></div>
+      <button
+        className="btn btn-primary btn-block"
+        style="margin-top: 5px, margin-left: 5px"
+        @click="isShow = !isShow"
+      >
+        Toogle visualization
+      </button>
+      <div v-show="isShow" id="chart"></div>
       <hr />
       <img
         v-bind:src="image_choose"
@@ -138,6 +145,7 @@ export default {
       maxHp: 0,
       more: 5,
       datasetStructers: [],
+      isShow: false,
       options: {
         series: [],
         chart: {
