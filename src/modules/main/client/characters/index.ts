@@ -1,5 +1,5 @@
 import { Characters } from './characters'
-import { Chest } from './chest'
+import { Chest } from './machine'
 import { Farm } from './farm'
 import { Tree } from './tree'
 export default [

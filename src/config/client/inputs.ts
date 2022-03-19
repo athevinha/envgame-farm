@@ -29,6 +29,7 @@ export const inputs = {
             RpgGui.hide('farm')
             RpgGui.hide('structure')
             RpgGui.hide('tree')
+            RpgGui.hide('machine')
         }
     }
 

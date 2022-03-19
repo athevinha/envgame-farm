@@ -15,26 +15,19 @@ export function ChestEvent(options): object {
     class ChestEventClass extends RpgEvent {
         onInit(player: RpgPlayer) {
             this.resfresh(player)
-            this.setGraphic('chest')
+            this.setGraphic('male4_1')
+            // this.setGraphic('chest')
         }
         async onAction(player: RpgPlayer) {
-            if (player.getVariable(name)) {
-                return
-            }
-            if (player.getDirection() != Direction.Up) {
-                return
-            }
-            await player.showText(text)
-            player.addItem(gain.item)
-            player.setVariable(name, true)
-            this.resfresh(player)
+            await player.gui('machine').open()
+
         }
         private resfresh(player) {
             if (player.getVariable(name)) {
-                this.changeDirection(Direction.Down)
+                this.changeDirection(Direction.Up)
             }
             else {
-                this.changeDirection(Direction.Up) 
+                this.changeDirection(Direction.Down)
             }
         }
     }

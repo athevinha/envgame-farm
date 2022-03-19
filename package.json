@@ -31,7 +31,8 @@
         "express": "4.17.1",
         "socket.io": "4.1.2",
         "socket.io-client": "4.1.2",
-        "vue": "3.0.11"
+        "vue": "3.0.11",
+        "vue3-blocks-tree": "^0.6.1"
     },
     "devDependencies": {
         "@rpgjs/compiler": "^3.0.0-beta.4",

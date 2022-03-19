@@ -649,7 +649,7 @@
 </data>
  </layer>
  <objectgroup id="14" name="Object Layer 1" offsetx="8" offsety="0">
-  <object id="1" name="Start Position" type="start" x="372.976" y="1349.8">
+  <object id="1" name="Start Position" type="start" x="599.066" y="250.051">
    <point/>
   </object>
   <object id="4" name="Village Chief" type="event" x="423" y="335.333">
@@ -667,7 +667,7 @@
   <object id="9" name="REM" x="370.049" y="864.399">
    <point/>
   </object>
-  <object id="10" name="chest-1" x="590" y="211">
+  <object id="10" name="machine" x="590" y="211">
    <point/>
   </object>
   <object id="20" name="farm-1" x="50.4198" y="191.447">

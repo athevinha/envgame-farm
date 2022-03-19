@@ -9,6 +9,7 @@ import rem from './gui/rem.vue'
 import tree from './gui/tree.vue'
 import farm from './gui/farm.vue'
 import structure from './gui/structure.vue'
+import machine from './gui/machine.vue'
 import { RpgSceneMapHooks, RpgSceneMap } from "@rpgjs/client";
 import { sceneMap } from './hooks/scene'
 import { sprite } from './hooks/sprite'
@@ -29,6 +30,7 @@ import { sprite } from './hooks/sprite'
         rem,
         farm,
         tree,
+        machine
     ],
     scenes: {
         map: sceneMap

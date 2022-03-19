@@ -3,7 +3,7 @@ import { NpcEvent } from '../events/npc'
 import { ShopEvent } from '../events/shop'
 import { Villager1Event } from '../events/ev1';
 import { Villager4Event } from '../events/ev4';
-import { ChestEvent } from '../events/chest';
+import { ChestEvent } from '../events/machine';
 import { FarmEvent } from '../events/farm';
 import { Potion } from '../database/items/potion';
 import { } from '../database/items/water';
@@ -28,7 +28,7 @@ events = [
     }),
     ShopEvent,
     ChestEvent({
-        name: 'chest-1',
+        name: 'machine',
         text: 'You got a potion!',
         gain: {
             item: Potion
