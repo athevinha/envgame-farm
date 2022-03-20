@@ -79,9 +79,7 @@ export function FarmEvent(options): object {
                 player.setVariable(var_name, farm)
                 player.emit('set_local_store', { farm: farm, local: var_name })
                 this.direction++;
-                if (this.direction >= 3) {
-                    this.direction = 0
-                }
+                if (this.direction >= 3) this.direction = 0
             }
             else {
                 this.direction = 0

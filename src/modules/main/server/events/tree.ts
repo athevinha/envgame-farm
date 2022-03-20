@@ -13,7 +13,7 @@ export function TreeEvent(options): object {
     class TreeEventClass extends RpgEvent {
         onInit(player: RpgPlayer) {
             player.setVariable('farm', 0)
-            this.resfresh(player)
+            // this.resfresh(player)
             this.setGraphic('tree')
         }
         async onAction(player: RpgPlayer) {
@@ -21,22 +21,7 @@ export function TreeEvent(options): object {
             // player.showAnimation('farm', 'default')
             gui.open()
         }
-        private resfresh(player) {
-            if (player!.getVariable(name)) {
-                let farm = player.getVariable('farm')
-                farm++
-                player.setVariable('farm', farm)
-                this.direction++;
-                if (this.direction >= 3) {
-                    this.direction = 0
-                }
-            }
-            else {
-                this.direction = 0
-                player.emit('event', { farm: 0 })
-                player.setVariable('farm', 0)
-            }
-        }
+
     }
     return TreeEventClass
 }

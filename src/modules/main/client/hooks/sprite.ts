@@ -25,7 +25,6 @@ export const sprite: RpgSpriteHooks = {
         }
         if (data && data.name) {
             const name = data.name
-            // To center the text...
             sprite.textGraphic.x = name.length + 12
             sprite.textGraphic.text = name
         }
