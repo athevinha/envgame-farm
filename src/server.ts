@@ -10,7 +10,9 @@ import modules from './modules'
 const PORT = 3001
 
 const app = express()
+// console.log(app)
 const server = http.createServer(app)
+
 const io = new Server(server, {
     maxHttpBufferSize: 1e4,
     cors: {
@@ -20,7 +22,6 @@ const io = new Server(server, {
 })
 
 app.use(bodyParser.json())
-
 const rpgGame = entryPoint(modules, { io, basePath: __dirname, globalConfig })
 rpgGame.app = app // Useful for plugins (monitoring, backend, etc.)
 
