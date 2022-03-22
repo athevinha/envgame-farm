@@ -129,7 +129,6 @@ import axios from "axios";
 import ApexCharts from "apexcharts";
 export default {
   name: "structure",
-  inject: ["rpgCurrentPlayer", "rpgGuiClose"],
   data() {
     return {
       hp: 0,
@@ -159,11 +158,6 @@ export default {
       },
       random_int(a, b) {
         return Math.floor(Math.random() * b) + a;
-      },
-      close() {
-        this.rpgGuiClose("farm", {
-          amount: 1000,
-        });
       },
     };
   },
@@ -230,10 +224,6 @@ export default {
   },
   mounted() {
     this.dataset_structer();
-    this.obsCurrentPlayer = this.rpgCurrentPlayer.subscribe(({ object }) => {
-      this.hp = object.hp;
-      this.maxHp = object.param.maxHp;
-    });
   },
 
   //   beforeDestroy() {

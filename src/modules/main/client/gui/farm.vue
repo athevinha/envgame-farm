@@ -51,8 +51,6 @@ export default {
   ],
   data() {
     return {
-      hp: 0,
-      maxHp: 0,
       accuracy_condition: 0.85,
       prediction_count_condition: 1,
       toast: "",

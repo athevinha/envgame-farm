@@ -3,7 +3,7 @@ import { MedievalTilesets } from './maps/medieval'
 import Characters from './characters'
 import { Images } from './images'
 import { Musics, Sounds } from './sounds'
-import { Animations } from './animations'
+// import { Animations } from './animations'
 import ai from './gui/ai.vue'
 import rem from './gui/rem.vue'
 import tree from './gui/tree.vue'
@@ -18,7 +18,7 @@ import { sprite } from './hooks/sprite'
         MedievalTilesets,
         ...Characters,
         Images,
-        Animations,
+        // Animations,
     ],
     sounds: [
         Musics,

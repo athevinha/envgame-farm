@@ -38,26 +38,14 @@
 <script>
 export default {
   name: "ai",
-  inject: ["rpgCurrentPlayer"],
   data() {
-    return {
-      hp: 0,
-      maxHp: 0,
-    };
+    return {};
   },
-  mounted() {
-    this.obsCurrentPlayer = this.rpgCurrentPlayer.subscribe(({ object }) => {
-      this.hp = object.hp;
-      this.maxHp = object.param.maxHp;
-    });
-  },
+  mounted() {},
   computed: {
     width() {
       return (this.hp / this.maxHp) * 100 + "%";
     },
-  },
-  unmounted() {
-    this.obsCurrentPlayer.unsubscribe();
   },
 };
 </script>

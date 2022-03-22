@@ -72,10 +72,8 @@ export default {
       train_result: false,
       base_api: "http://create-model.envgame.online",
       toast: "Loading...",
-      hp: 0,
       message: "",
       name_model: "",
-      maxHp: 0,
     };
   },
   methods: {

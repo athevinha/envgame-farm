@@ -20,7 +20,17 @@
   ></div>
   <div class="grid-container" style="overflow: auto; height: 624px; top: 3vh">
     <div style="text-align: left; font-size: 10px; width: 408px">
-      <br />
+      <img
+        v-bind:src="image_choose"
+        style='{{
+        "z-index: 100;border-radius: 5px; margin-left: calc((100% - 256px)/2);" +
+          image_choose ===
+        ""
+          ? ""
+          : "width: 256px; height: 256px;" 
+      }}'
+        id="image"
+      />
       <label v-for="(machine, index) in machines" style="text-align: left">
         <a
           class="btn btn-light"
