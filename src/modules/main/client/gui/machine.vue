@@ -172,7 +172,7 @@ let defaultoptions = { treeName: "blocks-tree" };
 
 export default {
   name: "machine",
-  inject: ["rpgCurrentPlayer", "rpgGuiClose"],
+  inject: [],
   data() {
     return {
       // hi: Battery,

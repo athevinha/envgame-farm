@@ -131,7 +131,6 @@ export default {
   name: "structure",
   data() {
     return {
-      hp: 0,
       selected: "",
       base_api: "http://create-model.envgame.online",
       image_choose: "",
@@ -141,7 +140,6 @@ export default {
       name: "",
       classes: "",
       allClasses: ["loading..."],
-      maxHp: 0,
       more: 5,
       datasetStructers: [],
       isShow: false,

@@ -65,10 +65,8 @@
 import axios from "axios";
 export default {
   name: "tree",
-  inject: ["rpgCurrentPlayer", "rpgGuiClose"],
   data() {
     return {
-      hp: 0,
       selected: "",
       base_api: "https://create-model.envgame.online/",
       image: "",
@@ -76,15 +74,9 @@ export default {
       toast: "Loading...",
       classes: "",
       allClasses: ["loading..."],
-      maxHp: 0,
       receiveMessage(e) {},
       random_int(a, b) {
         return Math.floor(Math.random() * b) + a;
-      },
-      close() {
-        this.rpgGuiClose("farm", {
-          amount: 1000,
-        });
       },
     };
   },

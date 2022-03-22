@@ -41,14 +41,7 @@
 <script>
 export default {
   name: "farm",
-  inject: [
-    "rpgCurrentPlayer",
-    "rpgKeypress",
-    "rpgGuiClose",
-    "rpgSocket",
-    "rpgEngine",
-    "rpgGui",
-  ],
+  inject: ["rpgSocket"],
   data() {
     return {
       accuracy_condition: 0.85,
@@ -58,11 +51,6 @@ export default {
       stage_over: false,
       farm_val_state: "",
       receiveMessage(e) {},
-      close() {
-        this.rpgGuiClose("farm", {
-          amount: 1000,
-        });
-      },
     };
   },
   methods: {

@@ -66,7 +66,7 @@
 import axios from "axios";
 export default {
   name: "rem",
-  inject: ["rpgCurrentPlayer", "rpgSocket"],
+  inject: ["rpgSocket"],
   data() {
     return {
       train_result: false,
@@ -133,10 +133,6 @@ export default {
     );
 
     this.get_training_result();
-    this.obsCurrentPlayer = this.rpgCurrentPlayer.subscribe(({ object }) => {
-      this.hp = object.hp;
-      this.maxHp = object.param.maxHp;
-    });
   },
   computed: {
     width() {

@@ -11,7 +11,7 @@ import farm from './gui/farm.vue'
 import structure from './gui/structure.vue'
 import machine from './gui/machine.vue'
 import { RpgSceneMapHooks, RpgSceneMap } from "@rpgjs/client";
-import { sceneMap } from './hooks/scene'
+// import { sceneMap } from './hooks/scene'
 import { sprite } from './hooks/sprite'
 @RpgModule<RpgClient>({
     spritesheets: [
@@ -32,9 +32,9 @@ import { sprite } from './hooks/sprite'
         tree,
         machine
     ],
-    scenes: {
-        map: sceneMap
-    },
+    // scenes: {
+    //     map: sceneMap
+    // },
     engine: {
         onConnected(engine: RpgClientEngine, socket: any) {
             socket.on('set_local_store', (arg) => {
