@@ -155,10 +155,6 @@ export default {
   mounted() {
     this.get_data();
     this.get_classes();
-    this.obsCurrentPlayer = this.rpgCurrentPlayer.subscribe(({ object }) => {
-      this.hp = object.hp;
-      this.maxHp = object.param.maxHp;
-    });
   },
   //   beforeDestroy() {
   //     window.removeEventListener("message", this.receiveMessage);

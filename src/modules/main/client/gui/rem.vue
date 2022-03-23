@@ -139,9 +139,6 @@ export default {
       return (this.hp / this.maxHp) * 100 + "%";
     },
   },
-  unmounted() {
-    this.obsCurrentPlayer.unsubscribe();
-  },
 };
 </script>
 
