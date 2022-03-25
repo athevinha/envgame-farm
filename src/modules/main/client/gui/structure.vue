@@ -40,9 +40,15 @@
           <div class="card card-body">
             <label
               style="cursor: pointer"
+              :style="
+                name_choose == file
+                  ? 'background:#F5F5F5;boder-radius: 5px'
+                  : null
+              "
               v-for="(file, index_2) in datasetStructer.files.slice(0, more)"
               v-on:click="
-                image_choose =
+                this.selected = [];
+                this.image_choose =
                   base_api + '/' + datasetStructer.classes + '/' + file;
                 name_choose = file;
                 classes_choose = datasetStructer.classes.replace(
@@ -98,24 +104,42 @@
       </button>
       <div v-show="isShow" id="chart"></div>
       <hr />
-      <img
-        v-bind:src="image_choose"
+      <iframe
+        v-bind:src="this.image_choose"
+        frameborder="0"
+        scrolling="no"
         style='{{
-        "z-index: 100;border-radius: 5px;top: 40vh;" + 
-        image_choose === ""
+        "z-index: 100;border-radius: 5px; margin-left:80px;" + 
+        this.image_choose === ""
           ? ""
-          : "width: 256px; height: 256px;"
+          : "width: 256px; height: 224px;"
       }}'
         id="image"
       />
-      <hr />
-      <label v-if="name_choose" style="margin-left: 10px; color: white"
-        >Name: {{ name_choose }}</label
-      >
-      <hr />
       <label v-if="classes_choose" style="margin-left: 10px; color: white"
         >Classes: {{ classes_choose }}</label
       >
+
+      <div id="option">
+        <label class="form-checkbox">
+          <input type="checkbox" v-model="selectAll" @click="select" />
+          <label>All</label>
+        </label>
+
+        <label v-for="i in items">
+          <label class="form-checkbox">
+            <input
+              type="checkbox"
+              style="margin-left: 10px"
+              :value="i.aug"
+              v-model="selected"
+              @change="aug_image"
+            />
+            <i class="form-icon"></i>
+          </label>
+          <label>{{ i.name }}</label>
+        </label>
+      </div>
     </div>
   </div>
 
@@ -131,7 +155,7 @@ export default {
   name: "structure",
   data() {
     return {
-      selected: "",
+      values: [],
       base_api: "http://create-model.envgame.online",
       image_choose: "",
       classes_choose: "",
@@ -154,6 +178,26 @@ export default {
           position: "bottom",
         },
       },
+      items: [
+        {
+          name: "Random Gamma",
+          aug: "g",
+        },
+        {
+          name: "Random Brightness",
+          aug: "b",
+        },
+        {
+          name: "Random Contrast",
+          aug: "c",
+        },
+        {
+          name: "Random Rotation",
+          aug: "r",
+        },
+      ],
+      selected: [],
+
       random_int(a, b) {
         return Math.floor(Math.random() * b) + a;
       },
@@ -204,6 +248,7 @@ export default {
           console.log(e);
         });
     },
+
     render_pie: function () {
       this.options.labels = this.datasetStructers.map((item, id) =>
         item.classes.replace("static/exampleData/", "")
@@ -218,6 +263,35 @@ export default {
         this.options
       );
       chart.render();
+    },
+    aug_image: function () {
+      console.log(this.image_choose, "sfsdfs");
+      if (this.image_choose !== "") {
+        let refesh = this.image_choose;
+        this.image_choose =
+          "https://a.wattpad.com/useravatar/golden-shit.256.946250.jpg";
+        let augs = "";
+        this.selected.map((aug, _) => {
+          augs += aug + ",";
+        });
+        axios
+          .get(
+            `${this.base_api}/augDataFes/?aug=${augs}&name=${this.name_choose}&classes=${this.classes_choose}`
+          )
+          .then((res) => {
+            this.image_choose = refesh;
+            console.log(res.data);
+          });
+      }
+    },
+    select: function () {
+      this.aug_image();
+      this.selected = [];
+      if (!this.selectAll) {
+        for (let i in this.items) {
+          this.selected.push(this.items[i].aug);
+        }
+      }
     },
   },
   mounted() {
