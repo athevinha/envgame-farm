@@ -105,7 +105,7 @@
       <div v-show="isShow" id="chart"></div>
       <hr />
       <iframe
-        v-bind:src="this.image_choose + '?cache=' + Math.Random()"
+        v-bind:src="this.image_choose"
         frameborder="0"
         scrolling="no"
         style='{{
@@ -263,10 +263,14 @@ export default {
       );
       chart.render();
     },
+    randomNumberfunction() {
+      return Math.floor(Math.random() * 100) + 1;
+    },
     aug_image: function () {
       console.log(this.image_choose, "sfsdfs");
       if (this.image_choose !== "") {
-        let refesh = this.image_choose;
+        let refesh =
+          this.image_choose + "?" + "cache=" + this.randomNumberfunction();
         this.image_choose =
           "https://a.wattpad.com/useravatar/golden-shit.256.946250.jpg";
         let augs = "";
