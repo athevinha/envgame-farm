@@ -142,7 +142,6 @@
       </div>
     </div>
   </div>
-
   <div id="toast">
     <div id="desc">{{ toast }}</div>
   </div>
@@ -334,7 +333,6 @@ export default {
   visibility: hidden;
   max-width: 50px;
   height: 50px;
-  /*margin-left: -125px;*/
   margin: auto;
   background-color: #333;
   color: #fff;
