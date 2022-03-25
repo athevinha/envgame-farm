@@ -105,7 +105,7 @@
       <div v-show="isShow" id="chart"></div>
       <hr />
       <iframe
-        v-bind:src="this.image_choose"
+        v-bind:src="this.image_choose + '?cache=' + Math.Random()"
         frameborder="0"
         scrolling="no"
         style='{{
