@@ -52,7 +52,7 @@
       top: 16vh;
     "
     id="GUI_frame"
-    src="http://create-model.envgame.online/"
+    src="http://54.169.97.49:5000/"
     height="500px"
     width="800px"
     name="frame-id"
