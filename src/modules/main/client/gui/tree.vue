@@ -68,7 +68,7 @@ export default {
   data() {
     return {
       selected: "",
-      base_api: "https://create-model.envgame.online/",
+      base_api: "http://54.169.97.49:5000//",
       image: "",
       name: "",
       toast: "Loading...",

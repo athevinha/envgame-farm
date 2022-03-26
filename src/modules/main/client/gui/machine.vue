@@ -179,7 +179,7 @@ export default {
       //====================
       image_choose: "",
       selected: "",
-      base_api: "http://create-model.envgame.online",
+      base_api: "http://.envgame.online",
       isShow: false,
       open_analog: true,
       open_digital: false,

@@ -155,7 +155,7 @@ export default {
   data() {
     return {
       values: [],
-      base_api: "http://create-model.envgame.online",
+      base_api: "http://54.169.97.49:5000/",
       image_choose: "",
       classes_choose: "",
       name_choose: "",
