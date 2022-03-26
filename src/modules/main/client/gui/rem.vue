@@ -52,7 +52,7 @@
       top: 16vh;
     "
     id="GUI_frame"
-    src="http://54.169.97.49:5000/"
+    src="http://create-model.envgame.online/"
     height="500px"
     width="800px"
     name="frame-id"
@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       train_result: false,
-      base_api: "http://54.169.97.49:5000",
+      base_api: "http://create-model.envgame.online",
       toast: "Loading...",
       message: "",
       name_model: "",

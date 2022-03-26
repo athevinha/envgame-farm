@@ -91,6 +91,7 @@
         className="btn btn-success btn-block"
         style="margin-top: 5px, margin-left: 5px"
         v-bind:href="base_api + '/downloadDataFes/exampleData'"
+        target="_blank"
         v-on:click="download_dataset"
       >
         Download dataset
@@ -155,7 +156,7 @@ export default {
   data() {
     return {
       values: [],
-      base_api: "http://54.169.97.49:5000/",
+      base_api: "http://create-model.envgame.online/",
       image_choose: "",
       classes_choose: "",
       name_choose: "",
