@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       train_result: false,
-      base_api: "http://create-model.envgame.online",
+      base_api: "http://54.169.97.49:5000",
       toast: "Loading...",
       message: "",
       name_model: "",
